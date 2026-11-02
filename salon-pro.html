@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!-- DUMMY PROJECT versi PRO untuk prospek WhatsApp kategori salon dan spa. Tema elegan ivory rose, font Marcellus dan Jost. Versi lengkap: pricelist per item bisa booking, paket bundel, slider sebelum-sesudah, profil stylist, ringkasan ulasan, hitung mundur promo, formulir booking yang menyusun pesan WhatsApp otomatis. -->
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Laras, Salon dan Spa Wanita di Gading Serpong, Tangerang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6f1; --panel:#ffffff; --panel2:#f4e9e2; --ink:#2e2622; --mut:#8a7668;
+    --rose:#b76e79; --rose-d:#9a5563; --gold:#c2a164; --wa:#1faa55; --line:rgba(46,38,34,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Jost",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2,.disp{font-family:"Marcellus",serif;font-weight:400;letter-spacing:.01em;line-height:1.15}
+  nav{position:sticky;top:0;z-index:80;background:rgba(250,246,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+  nav.scrolled{border-bottom-color:var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+  .logo{font-family:"Marcellus",serif;font-size:23px;letter-spacing:.04em}
+  .logo i{color:var(--rose);font-style:normal}
+  .nav-links{display:flex;gap:22px;align-items:center}
+  .nav-links a{color:var(--mut);text-decoration:none;font-size:14.5px;font-weight:500;letter-spacing:.02em}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:var(--ink);color:#faf6f1 !important;font-weight:600;padding:10px 18px;border-radius:99px}
+  .hero{padding:58px 0 26px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(183,110,121,.16),transparent 65%);right:-180px;top:-200px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;position:relative}
+  .kicker{display:inline-flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line);color:var(--rose-d);font-size:13px;font-weight:600;letter-spacing:.04em;padding:7px 14px;border-radius:99px}
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--wa);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,170,85,.45)}70%{box-shadow:0 0 0 8px rgba(31,170,85,0)}100%{box-shadow:0 0 0 0 rgba(31,170,85,0)}}
+  .hero h1{font-size:clamp(40px,6vw,62px);margin:20px 0 16px}
+  .hero h1 em{color:var(--rose);font-style:normal}
+  .hero p.lead{color:var(--mut);font-size:17px;line-height:1.65;max-width:470px}
+  .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--wa);color:#fff;font-weight:600;padding:15px 26px;border-radius:12px;text-decoration:none;font-size:15.5px;transition:transform .2s,box-shadow .2s;border:none;cursor:pointer;font-family:inherit}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,170,85,.25)}
+  .btn.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{box-shadow:none;border-color:var(--rose)}
+  .hero-note{margin-top:15px;color:var(--mut);font-size:13.5px}
+  .hero-note b{color:var(--ink)}
+  .visual{position:relative;height:460px}
+  .photo{position:absolute;inset:0 40px 0 0;border-radius:22px;background:
+    radial-gradient(120% 90% at 85% 0%,#eec9c4 0%,transparent 55%),
+    radial-gradient(100% 100% at 0% 100%,#e5d3ae 0%,transparent 55%),
+    linear-gradient(155deg,#f3ddd3,#dfae9f 70%);overflow:hidden}
+  .photo:after{content:"KHUSUS WANITA, RUANG PRIVAT TERSEDIA";position:absolute;left:20px;bottom:16px;font-size:10.5px;font-weight:600;letter-spacing:2.2px;color:rgba(46,38,34,.55)}
+  .flower{position:absolute;right:58px;bottom:20px;width:200px;height:240px;opacity:.95}
+  .price-card{position:absolute;right:0;top:26px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px 17px;box-shadow:0 22px 44px rgba(120,70,70,.18);width:218px}
+  .price-card h4{font-size:12.5px;letter-spacing:.08em;color:var(--mut);text-transform:uppercase;font-weight:600}
+  .price-card .row{display:flex;justify-content:space-between;font-size:14px;margin-top:9px}
+  .price-card .row b{color:var(--rose-d)}
+  .review-card{position:absolute;left:-6px;bottom:26px;background:var(--ink);color:#faf6f1;border-radius:16px;padding:15px 19px;box-shadow:0 22px 44px rgba(46,38,34,.32);max-width:258px}
+  .review-card .stars{color:var(--gold);letter-spacing:2px;font-size:14px}
+  .review-card p{font-size:13.5px;line-height:1.55;margin-top:5px}
+  .review-card b{font-size:12px;color:#cbb9a6;letter-spacing:.05em}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:42px 0 4px}
+  .stat{border-top:2px solid var(--line);padding-top:13px}
+  .stat b{font-family:"Marcellus",serif;font-size:30px}
+  .stat span{display:block;color:var(--mut);font-size:12px;font-weight:600;letter-spacing:1.4px;margin-top:4px;text-transform:uppercase}
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:44px;overflow:hidden;white-space:nowrap;padding:13px 0}
+  .marquee div{display:inline-block;animation:mq 26s linear infinite;font-size:16px;color:var(--mut);letter-spacing:.03em}
+  .marquee b{color:var(--rose);margin:0 14px;font-weight:500}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  section{padding:62px 0 6px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .sec-num{color:var(--rose);font-weight:600;font-size:14px;letter-spacing:.14em}
+  h2{font-size:clamp(28px,4.2vw,39px)}
+  .sub{color:var(--mut);line-height:1.65;max-width:600px;margin-bottom:26px;font-size:16px}
+  .tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+  .tab{border:1px solid var(--line);background:var(--panel);color:var(--mut);font-family:inherit;font-size:14.5px;font-weight:600;padding:10px 19px;border-radius:99px;cursor:pointer;transition:all .2s}
+  .tab.on{background:var(--rose);border-color:var(--rose);color:#fff}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+  .mitem{display:flex;gap:12px;padding:15px 2px;border-bottom:1px dashed var(--line);align-items:center}
+  .mitem .nm{font-weight:600;font-size:16px}
+  .mitem .ds{color:var(--mut);font-size:13.5px;line-height:1.5;margin-top:3px}
+  .mitem .dots{flex:1;border-bottom:2px dotted rgba(46,38,34,.25)}
+  .mitem .pr{font-weight:600;font-size:16.5px;color:var(--rose-d);white-space:nowrap}
+  .pill{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.07em;background:var(--gold);color:#fff;padding:3px 9px;border-radius:99px;margin-left:8px;vertical-align:2px;text-transform:uppercase}
+  .book-btn{flex:none;font-size:12.5px;font-weight:600;color:var(--wa);border:1px solid rgba(31,170,85,.4);padding:6px 12px;border-radius:99px;text-decoration:none;transition:all .2s;background:#fff}
+  .book-btn:hover{background:var(--wa);color:#fff}
+  .menu-pane{display:none}
+  .menu-pane.on{display:block;animation:fadeUp .45s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .paket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .paket{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;position:relative}
+  .paket.hot{border-color:var(--rose);box-shadow:0 18px 38px rgba(154,85,99,.15)}
+  .paket .tag{position:absolute;top:-11px;left:22px;background:var(--rose);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;padding:4px 12px;border-radius:99px;text-transform:uppercase}
+  .paket h3{font-size:20px;font-weight:600}
+  .paket .harga{font-family:"Marcellus",serif;font-size:34px;margin:10px 0 2px;color:var(--rose-d)}
+  .paket .coret{color:var(--mut);font-size:14px;text-decoration:line-through}
+  .paket ul{list-style:none;margin:16px 0 20px;flex:1}
+  .paket li{padding:7px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:#574a42;display:flex;gap:9px}
+  .paket li:before{content:"✦";color:var(--gold);font-size:12px;margin-top:2px}
+  .paket li:last-child{border-bottom:none}
+  .paket .btn{justify-content:center;padding:13px 20px;font-size:14.5px}
+  .ba-wrap{position:relative;border-radius:20px;overflow:hidden;height:420px;user-select:none}
+  .ba-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba-after{filter:saturate(1.25) brightness(1.05)}
+  .ba-before{filter:saturate(.35) brightness(.88) contrast(.95)}
+  .ba-top{position:absolute;inset:0;overflow:hidden}
+  .ba-top img{width:100vw;max-width:none}
+  .ba-label{position:absolute;top:16px;background:rgba(30,20,16,.65);color:#fff;font-size:12px;font-weight:600;letter-spacing:.12em;padding:6px 13px;border-radius:99px;text-transform:uppercase;z-index:3}
+  .ba-handle{position:absolute;top:0;bottom:0;width:3px;background:#fff;box-shadow:0 0 14px rgba(0,0,0,.4);z-index:2;transform:translateX(-50%)}
+  .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+  .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:4}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+  .tile{position:relative;height:190px;border-radius:16px;overflow:hidden}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .tile:hover img{transform:scale(1.07)}
+  .tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(30,20,16,.55))}
+  .tile span{position:absolute;left:14px;bottom:12px;font-size:16px;font-weight:600;color:#fff;z-index:2}
+  .sty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .sty{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px 20px;text-align:center}
+  .sty .ava{width:74px;height:74px;border-radius:50%;margin:0 auto 13px;background:linear-gradient(150deg,#e9c8c0,#c99a92);display:flex;align-items:center;justify-content:center;font-family:"Marcellus",serif;font-size:27px;color:#fff;letter-spacing:.03em}
+  .sty h3{font-size:18px;font-weight:600}
+  .sty .role{color:var(--rose-d);font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;margin:5px 0 9px}
+  .sty p{color:var(--mut);font-size:13.5px;line-height:1.55;min-height:62px}
+  .sty .meta{display:flex;justify-content:center;gap:14px;font-size:12.5px;color:var(--mut);margin:10px 0 14px}
+  .sty .meta b{color:var(--ink)}
+  .rev-layout{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+  .rev-sum{background:var(--ink);color:#faf6f1;border-radius:18px;padding:28px}
+  .rev-sum .big{font-family:"Marcellus",serif;font-size:56px;line-height:1}
+  .rev-sum .stars{color:var(--gold);letter-spacing:3px;margin:8px 0 4px}
+  .rev-sum .cnt{color:#cbb9a6;font-size:13.5px}
+  .bar-row{display:flex;align-items:center;gap:10px;margin-top:11px;font-size:13px}
+  .bar-row .tr{flex:1;height:8px;border-radius:99px;background:rgba(250,246,241,.15);overflow:hidden}
+  .bar-row .fl{height:100%;background:var(--gold);border-radius:99px}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rev{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+  .rev .stars{color:#d99a2b;letter-spacing:2px;font-size:13px}
+  .rev p{font-size:14.5px;line-height:1.6;margin:10px 0 12px;color:#574a42}
+  .rev b{font-size:13px}
+  .rev span{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
+  .promo{background:linear-gradient(120deg,#9a5563,#b76e79);border-radius:22px;padding:38px 40px;color:#fff;display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center;margin-top:56px}
+  .promo h2{color:#fff}
+  .promo p{color:#f3dcd9;line-height:1.65;margin-top:9px;max-width:420px}
+  .cd{display:flex;gap:10px;justify-content:flex-end}
+  .cd .cell{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:13px 0;width:76px;text-align:center}
+  .cd .cell b{font-family:"Marcellus",serif;font-size:29px;display:block}
+  .cd .cell span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f3dcd9}
+  .form-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:32px}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fld label{display:block;font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+  .fld input,.fld select,.fld textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:15px;background:var(--bg);color:var(--ink)}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid rgba(183,110,121,.45);border-color:var(--rose)}
+  .fld.full{grid-column:1/-1}
+  .form-note{color:var(--mut);font-size:13.5px;margin-top:14px;line-height:1.6}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .card h3{font-size:20px;margin-bottom:14px;font-weight:600}
+  .hours{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .hours:last-child{border-bottom:none}
+  .loc p{color:var(--mut);line-height:1.65;font-size:15px}
+  .faq-item{border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--panel);overflow:hidden}
+  .faq-q{width:100%;background:none;border:none;color:var(--ink);text-align:left;padding:16px 20px;font-size:15.5px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:12px}
+  .faq-q .arr{color:var(--rose);transition:transform .3s;font-size:18px}
+  .faq-item.open .faq-q .arr{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 20px 17px;color:var(--mut);font-size:14.5px;line-height:1.65}
+  .final{background:var(--ink);color:#faf6f1;border-radius:22px;padding:44px 40px;text-align:center;margin-top:56px}
+  .final h2{color:#faf6f1}
+  .final p{color:#cbb9a6;margin:12px auto 24px;max-width:440px;line-height:1.65}
+  footer{padding:34px 0 90px;color:var(--mut);font-size:13.5px;text-align:center;line-height:1.7}
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:95;background:var(--wa);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:floatPulse 2.4s infinite}
+  @keyframes floatPulse{0%{box-shadow:0 12px 28px rgba(31,170,85,.35),0 0 0 0 rgba(31,170,85,.4)}70%{box-shadow:0 12px 28px rgba(31,170,85,.35),0 0 0 15px rgba(31,170,85,0)}100%{box-shadow:0 12px 28px rgba(31,170,85,.35),0 0 0 0 rgba(31,170,85,0)}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(max-width:920px){
+    .hero-grid,.menu-grid,.two,.rev-layout,.promo{grid-template-columns:1fr}
+    .paket-grid,.rev-grid{grid-template-columns:1fr}
+    .sty-grid{grid-template-columns:repeat(2,1fr)}
+    .cd{justify-content:flex-start}
+    .visual{height:380px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .gal{grid-template-columns:repeat(2,1fr)}
+    .form-grid{grid-template-columns:1fr}
+    .nav-links a:not(.nav-cta){display:none}
+    .ba-wrap{height:320px}
+  }
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nav-in">
+  <div class="logo">Salon <i>Laras</i></div>
+  <div class="nav-links">
+    <a href="#layanan">Layanan</a><a href="#paket">Paket</a><a href="#stylist">Stylist</a><a href="#ulasan">Ulasan</a><a href="#booking">Booking</a>
+    <a class="nav-cta" href="#booking">Booking Sekarang</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span> Masih ada slot hari ini, booking dulu yuk</span>
+      <h1>Tampil segar itu mudah, <em>asal tahu</em> tempatnya.</h1>
+      <p class="lead">Salon Laras adalah salon dan spa khusus wanita di Gading Serpong. Stylist berpengalaman, produk yang jelas mereknya, dan harga tertulis di depan, tanpa biaya tambahan yang muncul belakangan.</p>
+      <div class="cta-row">
+        <a class="btn" href="#booking">Isi Form Booking</a>
+        <a class="btn ghost" href="#paket">Lihat Paket Hemat</a>
+      </div>
+      <p class="hero-note">Booking lewat form atau WA, <b>slot jam kamu dikunci</b> dan tidak perlu menunggu giliran lama.</p>
+    </div>
+    <div class="visual">
+      <div class="photo">
+        <svg class="flower" viewBox="0 0 200 240" fill="none">
+          <path d="M100 226 C100 160 100 120 100 84" stroke="#5c7150" stroke-width="6" stroke-linecap="round"/>
+          <path d="M100 168 C74 158 60 140 58 116 C82 120 96 138 100 168Z" fill="#7d9271"/>
+          <path d="M100 140 C126 130 140 112 142 88 C118 92 104 110 100 140Z" fill="#93a789"/>
+          <g fill="#b76e79">
+            <circle cx="100" cy="52" r="17"/><circle cx="76" cy="66" r="15"/><circle cx="124" cy="66" r="15"/><circle cx="86" cy="84" r="13"/><circle cx="114" cy="84" r="13"/>
+          </g>
+          <circle cx="100" cy="68" r="10" fill="#c2a164"/>
+        </svg>
+      </div>
+      <div class="price-card">
+        <h4>Paling Dicari</h4>
+        <div class="row"><span>Creambath + pijat</span><b>75rb</b></div>
+        <div class="row"><span>Potong + blow</span><b>85rb</b></div>
+        <div class="row"><span>Facial glowing</span><b>150rb</b></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Smoothing di sini hasilnya lembut dan tidak kaku. Stylistnya jujur, rambut saya dibilang belum perlu diwarnai dulu."</p>
+        <b>RATING 4.9 DARI 640+ ULASAN GOOGLE</b>
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b><span class="count" data-to="4.9" data-dec="1">0</span></b><span>Rating Google</span></div>
+    <div class="stat"><b><span class="count" data-to="640">0</span>+</b><span>Ulasan Pelanggan</span></div>
+    <div class="stat"><b><span class="count" data-to="20">0</span>+</b><span>Pilihan Layanan</span></div>
+    <div class="stat"><b><span class="count" data-to="8">0</span></b><span>Stylist &amp; Terapis</span></div>
+  </div>
+</div></header>
+
+<div class="marquee"><div>Khusus Wanita <b>•</b> Harga Tertulis di Depan <b>•</b> Produk Bermerek Jelas <b>•</b> Booking WA Tanpa Antre <b>•</b> Khusus Wanita <b>•</b> Harga Tertulis di Depan <b>•</b> Produk Bermerek Jelas <b>•</b> Booking WA Tanpa Antre <b>•</b></div></div>
+
+<section id="layanan"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">01</span><h2>Layanan dan harga</h2></div>
+  <p class="sub reveal">Setiap layanan bisa langsung dibooking dari daftar ini, pesan WhatsApp nya tersusun otomatis. Konsultasi soal rambut dan kulit selalu gratis.</p>
+  <div class="tabs reveal">
+    <button class="tab on" data-pane="rambut">Rambut</button>
+    <button class="tab" data-pane="wajah">Wajah &amp; Badan</button>
+    <button class="tab" data-pane="kuku">Kuku</button>
+  </div>
+  <div class="menu-pane on" id="pane-rambut"><div class="menu-grid">
+    <div class="mitem"><div><span class="nm">Potong + Cuci + Blow</span><div class="ds">Konsultasi model dulu, disesuaikan bentuk wajah</div></div><div class="dots"></div><div class="pr">85rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Potong%20%2B%20Cuci%20%2B%20Blow">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Creambath + Pijat Kepala</span><span class="pill">Favorit</span><div class="ds">60 menit, termasuk pijat bahu ringan</div></div><div class="dots"></div><div class="pr">75rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Creambath%20%2B%20Pijat%20Kepala">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Hair Spa</span><div class="ds">Untuk rambut kering dan bercabang</div></div><div class="dots"></div><div class="pr">120rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Hair%20Spa">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Coloring Full</span><div class="ds">Produk L'Oreal dan Makarizo, tes alergi dulu</div></div><div class="dots"></div><div class="pr">mulai 250rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Coloring%20Full">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Smoothing</span><div class="ds">Hasil lembut natural, bukan lurus kaku</div></div><div class="dots"></div><div class="pr">mulai 350rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Smoothing">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Keratin Treatment</span><div class="ds">Mengurangi frizz sampai 3 bulan</div></div><div class="dots"></div><div class="pr">450rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Keratin%20Treatment">Booking</a></div>
+  </div></div>
+  <div class="menu-pane" id="pane-wajah"><div class="menu-grid">
+    <div class="mitem"><div><span class="nm">Facial Glowing</span><span class="pill">Favorit</span><div class="ds">Pembersihan, ekstraksi komedo, masker, serum</div></div><div class="dots"></div><div class="pr">150rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Facial%20Glowing">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Facial Acne Care</span><div class="ds">Untuk kulit berjerawat dan sensitif</div></div><div class="dots"></div><div class="pr">175rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Facial%20Acne%20Care">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Body Massage 60 Menit</span><div class="ds">Tekanan bisa dipilih, terapis wanita</div></div><div class="dots"></div><div class="pr">180rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Body%20Massage%2060%20Menit">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Lulur + Body Spa</span><div class="ds">Lulur tradisional, masker badan, berendam</div></div><div class="dots"></div><div class="pr">250rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Lulur%20%2B%20Body%20Spa">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Totok Wajah</span><div class="ds">Melancarkan peredaran darah wajah</div></div><div class="dots"></div><div class="pr">90rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Totok%20Wajah">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Ratus Spa</span><div class="ds">Perawatan area kewanitaan tradisional</div></div><div class="dots"></div><div class="pr">110rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Ratus%20Spa">Booking</a></div>
+  </div></div>
+  <div class="menu-pane" id="pane-kuku"><div class="menu-grid">
+    <div class="mitem"><div><span class="nm">Manicure</span><div class="ds">Perawatan kuku tangan + kutikula rapi</div></div><div class="dots"></div><div class="pr">65rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Manicure">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Pedicure</span><div class="ds">Termasuk rendam dan scrub kaki</div></div><div class="dots"></div><div class="pr">75rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Pedicure">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Paket Mani + Pedi</span><span class="pill">Hemat</span><div class="ds">Sekali datang, tangan dan kaki selesai</div></div><div class="dots"></div><div class="pr">120rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Paket%20Mani%20%2B%20Pedi">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Gel Polish</span><div class="ds">Awet 2 sampai 3 minggu</div></div><div class="dots"></div><div class="pr">mulai 90rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Gel%20Polish">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Nail Art</span><div class="ds">Desain per kuku, bisa bawa contoh gambar</div></div><div class="dots"></div><div class="pr">mulai 50rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Nail%20Art">Booking</a></div>
+    <div class="mitem"><div><span class="nm">Callus Treatment</span><div class="ds">Untuk tumit pecah dan kapalan</div></div><div class="dots"></div><div class="pr">60rb</div><a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Callus%20Treatment">Booking</a></div>
+  </div></div>
+</div></section>
+
+<section id="paket"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">02</span><h2>Paket hemat sekali datang</h2></div>
+  <p class="sub reveal">Untuk yang mau sekalian beres dalam satu kunjungan. Harga paket sudah termasuk semua layanan di dalamnya, tanpa tambahan di kasir.</p>
+  <div class="paket-grid">
+    <div class="paket reveal">
+      <h3>Paket Segar</h3>
+      <div class="harga">199rb</div>
+      <div class="coret">Harga normal 235rb</div>
+      <ul>
+        <li>Potong + cuci + blow</li>
+        <li>Creambath + pijat kepala</li>
+        <li>Manicure</li>
+        <li>Konsultasi model rambut gratis</li>
+      </ul>
+      <a class="btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Paket%20Segar%20199rb">Booking Paket Ini</a>
+    </div>
+    <div class="paket hot reveal">
+      <span class="tag">Paling Laris</span>
+      <h3>Paket Glowing</h3>
+      <div class="harga">349rb</div>
+      <div class="coret">Harga normal 445rb</div>
+      <ul>
+        <li>Facial glowing lengkap</li>
+        <li>Hair spa + blow</li>
+        <li>Paket mani + pedi</li>
+        <li>Gratis totok wajah</li>
+        <li>Prioritas slot akhir pekan</li>
+      </ul>
+      <a class="btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Paket%20Glowing%20349rb">Booking Paket Ini</a>
+    </div>
+    <div class="paket reveal">
+      <h3>Paket Hari Istimewa</h3>
+      <div class="harga">599rb</div>
+      <div class="coret">Harga normal 760rb</div>
+      <ul>
+        <li>Smoothing atau coloring dasar</li>
+        <li>Facial glowing + totok wajah</li>
+        <li>Lulur + body spa</li>
+        <li>Gel polish</li>
+        <li>Ruang privat + minuman herbal</li>
+      </ul>
+      <a class="btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20Paket%20Hari%20Istimewa%20599rb">Booking Paket Ini</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="hasil"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">03</span><h2>Hasil perawatan</h2></div>
+  <p class="sub reveal">Geser garis di tengah foto untuk membandingkan kondisi rambut sebelum dan sesudah smoothing + keratin di Salon Laras.</p>
+  <div class="ba-wrap reveal" id="baWrap">
+    <img class="ba-after" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=75" alt="Hasil sesudah perawatan rambut">
+    <div class="ba-top" id="baTop" style="width:50%">
+      <img class="ba-before" id="baBeforeImg" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=75" alt="Kondisi sebelum perawatan rambut">
+    </div>
+    <span class="ba-label" style="left:16px">Sebelum</span>
+    <span class="ba-label" style="right:16px">Sesudah</span>
+    <div class="ba-handle" id="baHandle" style="left:50%"><div class="ba-knob">◂ ▸</div></div>
+    <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Geser untuk membandingkan sebelum dan sesudah">
+  </div>
+  <div class="gal">
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=70" alt="Stylist sedang menata rambut pelanggan" loading="lazy"><span>Area Styling</span></div>
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=70" alt="Proses pewarnaan rambut" loading="lazy"><span>Coloring</span></div>
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=70" alt="Perawatan spa dan pijat" loading="lazy"><span>Ruang Spa</span></div>
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=800&q=70" alt="Perawatan kecantikan wajah" loading="lazy"><span>Facial</span></div>
+  </div>
+</div></section>
+
+<section id="stylist"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">04</span><h2>Kenalan dengan tim kami</h2></div>
+  <p class="sub reveal">Booking bisa menyebut nama stylist atau terapis yang kamu mau. Kalau ragu, konsultasikan dulu lewat WA, kami pilihkan yang paling cocok.</p>
+  <div class="sty-grid">
+    <div class="sty reveal">
+      <div class="ava">La</div>
+      <h3>Laras</h3>
+      <div class="role">Master Stylist</div>
+      <p>Spesialis potong dan smoothing. Pendiri Salon Laras, paling sering diminta untuk konsultasi ganti model rambut.</p>
+      <div class="meta"><span><b>9 th</b> pengalaman</span><span><b>4.9</b> rating</span></div>
+      <a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20dengan%20Kak%20Laras">Booking dengan Laras</a>
+    </div>
+    <div class="sty reveal">
+      <div class="ava">Na</div>
+      <h3>Nadia</h3>
+      <div class="role">Color Specialist</div>
+      <p>Spesialis coloring dan keratin. Teliti soal tes alergi dan riwayat kimia rambut sebelum mulai mewarnai.</p>
+      <div class="meta"><span><b>7 th</b> pengalaman</span><span><b>4.9</b> rating</span></div>
+      <a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20dengan%20Kak%20Nadia">Booking dengan Nadia</a>
+    </div>
+    <div class="sty reveal">
+      <div class="ava">Si</div>
+      <h3>Sinta</h3>
+      <div class="role">Terapis Spa</div>
+      <p>Spesialis facial dan body spa. Dikenal pijatannya pas dan ruangannya selalu privat, cocok untuk yang baru pertama kali.</p>
+      <div class="meta"><span><b>6 th</b> pengalaman</span><span><b>5.0</b> rating</span></div>
+      <a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20dengan%20Kak%20Sinta">Booking dengan Sinta</a>
+    </div>
+    <div class="sty reveal">
+      <div class="ava">De</div>
+      <h3>Dewi</h3>
+      <div class="role">Nail Artist</div>
+      <p>Spesialis gel polish dan nail art. Bisa bawa contoh desain sendiri, dia bantu sesuaikan dengan bentuk kuku kamu.</p>
+      <div class="meta"><span><b>5 th</b> pengalaman</span><span><b>4.8</b> rating</span></div>
+      <a class="book-btn" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking%20dengan%20Kak%20Dewi">Booking dengan Dewi</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="ulasan"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">05</span><h2>Kata pelanggan</h2></div>
+  <p class="sub reveal">Diambil dari ulasan Google pelanggan Salon Laras.</p>
+  <div class="rev-layout">
+    <div class="rev-sum reveal">
+      <div class="big">4.9</div>
+      <div class="stars">★★★★★</div>
+      <div class="cnt">dari 640+ ulasan Google</div>
+      <div class="bar-row"><span>5</span><div class="tr"><div class="fl" style="width:88%"></div></div><span>88%</span></div>
+      <div class="bar-row"><span>4</span><div class="tr"><div class="fl" style="width:9%"></div></div><span>9%</span></div>
+      <div class="bar-row"><span>3</span><div class="tr"><div class="fl" style="width:2%"></div></div><span>2%</span></div>
+      <div class="bar-row"><span>2</span><div class="tr"><div class="fl" style="width:1%"></div></div><span>1%</span></div>
+      <div class="bar-row"><span>1</span><div class="tr"><div class="fl" style="width:0%"></div></div><span>0%</span></div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Smoothing di sini hasilnya lembut dan tidak kaku. Stylistnya jujur, rambut saya dibilang belum perlu diwarnai dulu."</p><b>Maya</b><span>Gading Serpong, smoothing</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Booking lewat WA itu ngebantu banget. Datang langsung duduk, tidak pakai nunggu sejam kayak salon sebelah."</p><b>Rina</b><span>Pelanggan creambath</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Facialnya enak, terapisnya sopan dan ruangannya privat. Sudah langganan tiap bulan, kulit jauh lebih tenang."</p><b>Bu Tania</b><span>Pelanggan facial</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Coloring hasilnya persis contoh yang saya bawa. Sebelum mulai dijelaskan dulu risikonya ke rambut saya, transparan."</p><b>Salsa</b><span>Coloring full</span></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Ambil Paket Glowing buat persiapan acara kantor. Sekali datang beres semua, hemat dibanding satuan."</p><b>Dita</b><span>Paket Glowing</span></div>
+      <div class="rev reveal"><div class="stars">★★★★☆</div><p>"Tempatnya bersih dan wangi. Akhir pekan agak ramai, untung sudah booking dulu jadi tetap dapat slot pagi."</p><b>Wulan</b><span>Mani + pedi</span></div>
+    </div>
+  </div>
+  <div class="promo reveal">
+    <div>
+      <h2>Promo akhir pekan: Facial Glowing hemat 40rb</h2>
+      <p>Booking untuk Sabtu dan Minggu ini lewat halaman ini, Facial Glowing jadi 110rb dari 150rb. Slot promo dibatasi 10 per hari dan ditutup begitu kuotanya habis.</p>
+    </div>
+    <div>
+      <div class="cd" id="cdPromo">
+        <div class="cell"><b id="cdD">0</b><span>Hari</span></div>
+        <div class="cell"><b id="cdH">0</b><span>Jam</span></div>
+        <div class="cell"><b id="cdM">0</b><span>Menit</span></div>
+        <div class="cell"><b id="cdS">0</b><span>Detik</span></div>
+      </div>
+      <p style="text-align:right;margin-top:12px;font-size:13px">Berakhir Minggu pukul 21.00</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="booking"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">06</span><h2>Form booking</h2></div>
+  <p class="sub reveal">Isi form ini, lalu tekan tombol kirim. Kamu akan diarahkan ke WhatsApp dengan pesan booking yang sudah tersusun rapi, tinggal kirim.</p>
+  <div class="form-card reveal">
+    <form id="bookForm">
+      <div class="form-grid">
+        <div class="fld"><label for="fNama">Nama kamu</label><input id="fNama" type="text" placeholder="cth: Maya" required></div>
+        <div class="fld"><label for="fWa">Nomor WhatsApp</label><input id="fWa" type="tel" placeholder="cth: 0812xxxxxxx" required></div>
+        <div class="fld"><label for="fLayanan">Layanan</label>
+          <select id="fLayanan" required>
+            <option value="">Pilih layanan</option>
+            <optgroup label="Rambut">
+              <option>Potong + Cuci + Blow, 85rb</option>
+              <option>Creambath + Pijat Kepala, 75rb</option>
+              <option>Hair Spa, 120rb</option>
+              <option>Coloring Full, mulai 250rb</option>
+              <option>Smoothing, mulai 350rb</option>
+              <option>Keratin Treatment, 450rb</option>
+            </optgroup>
+            <optgroup label="Wajah dan Badan">
+              <option>Facial Glowing, 150rb</option>
+              <option>Facial Acne Care, 175rb</option>
+              <option>Body Massage 60 Menit, 180rb</option>
+              <option>Lulur + Body Spa, 250rb</option>
+              <option>Totok Wajah, 90rb</option>
+              <option>Ratus Spa, 110rb</option>
+            </optgroup>
+            <optgroup label="Kuku">
+              <option>Manicure, 65rb</option>
+              <option>Pedicure, 75rb</option>
+              <option>Paket Mani + Pedi, 120rb</option>
+              <option>Gel Polish, mulai 90rb</option>
+              <option>Nail Art, mulai 50rb</option>
+              <option>Callus Treatment, 60rb</option>
+            </optgroup>
+            <optgroup label="Paket Hemat">
+              <option>Paket Segar, 199rb</option>
+              <option>Paket Glowing, 349rb</option>
+              <option>Paket Hari Istimewa, 599rb</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="fld"><label for="fStylist">Stylist / terapis</label>
+          <select id="fStylist">
+            <option>Siapa saja yang tersedia</option>
+            <option>Laras, Master Stylist</option>
+            <option>Nadia, Color Specialist</option>
+            <option>Sinta, Terapis Spa</option>
+            <option>Dewi, Nail Artist</option>
+          </select>
+        </div>
+        <div class="fld"><label for="fTanggal">Tanggal</label><input id="fTanggal" type="date" required></div>
+        <div class="fld"><label for="fJam">Jam</label>
+          <select id="fJam" required>
+            <option value="">Pilih jam</option>
+            <option>09.00</option><option>10.00</option><option>11.00</option><option>13.00</option>
+            <option>14.00</option><option>15.00</option><option>16.00</option><option>17.00</option>
+            <option>18.00</option><option>19.00</option>
+          </select>
+        </div>
+        <div class="fld full"><label for="fCatatan">Catatan (opsional)</label><textarea id="fCatatan" rows="3" placeholder="cth: rambut saya habis diwarnai bulan lalu, mau konsultasi dulu"></textarea></div>
+      </div>
+      <div style="margin-top:20px"><button class="btn" type="submit">Kirim Booking via WhatsApp</button></div>
+      <p class="form-note">Slot dianggap terkunci setelah admin membalas konfirmasi di WhatsApp. Kalau jam yang kamu pilih penuh, admin akan menawarkan jam terdekat yang masih kosong.</p>
+    </form>
+  </div>
+</div></section>
+
+<section id="info"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">07</span><h2>Jam buka dan lokasi</h2></div>
+  <p class="sub reveal">Buka setiap hari, termasuk tanggal merah.</p>
+  <div class="two">
+    <div class="card reveal">
+      <h3>Jam Operasional</h3>
+      <div class="hours"><span>Senin - Jumat</span><b>09.00 - 20.00</b></div>
+      <div class="hours"><span>Sabtu - Minggu</span><b>09.00 - 21.00</b></div>
+      <div class="hours"><span>Booking terakhir</span><b>1 jam sebelum tutup</b></div>
+      <div class="loc" style="margin-top:16px">
+        <p><b style="color:var(--ink)">Salon Laras</b><br>Jl. Gading Serpong Boulevard No. 5<br>Kabupaten Tangerang</p>
+        <p style="margin-top:8px">Ruko lantai 2, tangga di samping kedai kopi. Parkir luas di area ruko.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="faq-item"><button class="faq-q" type="button">Apakah harus booking dulu?<span class="arr">+</span></button><div class="faq-a"><p>Tidak wajib, walk in tetap dilayani. Tapi di akhir pekan antrean bisa panjang, jadi booking lewat form atau WA jauh lebih aman untuk waktu kamu.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Produk coloring nya merek apa?<span class="arr">+</span></button><div class="faq-a"><p>Kami memakai L'Oreal dan Makarizo, kemasannya bisa kamu lihat langsung sebelum dipakai. Tidak ada produk oplosan tanpa merek di salon ini.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Boleh bawa anak kecil?<span class="arr">+</span></button><div class="faq-a"><p>Boleh. Ada sudut duduk yang nyaman untuk anak, dan kami juga melayani potong rambut anak perempuan.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Kalau hasil smoothing tidak sesuai bagaimana?<span class="arr">+</span></button><div class="faq-a"><p>Datang kembali dalam 7 hari, kami periksa dan perbaiki gratis bila memang hasilnya dari proses kami. Kepuasan kamu lebih penting daripada sekali transaksi.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Bisakah reschedule booking?<span class="arr">+</span></button><div class="faq-a"><p>Bisa, maksimal 3 jam sebelum jadwal lewat WhatsApp. Slot kamu kami pindahkan ke jam atau hari lain yang masih kosong, tanpa biaya.</p></div></div>
+    </div>
+  </div>
+  <div class="final reveal">
+    <h2>Akhir pekan ini, kasih waktu buat dirimu sendiri.</h2>
+    <p>Slot Sabtu dan Minggu cepat penuh. Kunci jamu dari sekarang lewat form booking atau WhatsApp.</p>
+    <a class="btn" href="#booking">Isi Form Booking</a>
+  </div>
+</div></section>
+
+<footer>
+  Salon Laras, Jl. Gading Serpong Boulevard No. 5, Kabupaten Tangerang<br>
+  Halaman dibuat oleh 2RC Digital Creative
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281322223333?text=Halo%20Salon%20Laras,%20saya%20mau%20booking" aria-label="Chat WhatsApp">
+  <svg width="29" height="29" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.3.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg>
+</a>
+
+<script>
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+      document.querySelectorAll('.menu-pane').forEach(function(x){x.classList.remove('on')});
+      t.classList.add('on');
+      document.getElementById('pane-'+t.dataset.pane).classList.add('on');
+    });
+  });
+  var counted=false;
+  function runCounters(){
+    if(counted) return; counted=true;
+    document.querySelectorAll('.count').forEach(function(el){
+      var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0'), t0=null;
+      function step(ts){
+        if(!t0) t0=ts;
+        var p=Math.min((ts-t0)/1400,1);
+        el.textContent=(to*(0.2+0.8*p)).toFixed(dec);
+        if(p<1) requestAnimationFrame(step); else el.textContent=to.toFixed(dec);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var baRange=document.getElementById('baRange'), baTop=document.getElementById('baTop'),
+      baHandle=document.getElementById('baHandle'), baImg=document.getElementById('baBeforeImg'),
+      baWrap=document.getElementById('baWrap');
+  function baSize(){ baImg.style.width=baWrap.offsetWidth+'px'; }
+  baRange.addEventListener('input',function(){
+    baTop.style.width=baRange.value+'%';
+    baHandle.style.left=baRange.value+'%';
+  });
+  addEventListener('resize',baSize); baSize();
+  function nextSunday21(){
+    var n=new Date(), d=new Date(n.getFullYear(),n.getMonth(),n.getDate(),21,0,0);
+    var add=(7-n.getDay())%7;
+    d.setDate(d.getDate()+add);
+    if(d<=n) d.setDate(d.getDate()+7);
+    return d;
+  }
+  var cdTarget=nextSunday21();
+  function cdTick(){
+    var diff=cdTarget-new Date();
+    if(diff<0){ cdTarget=new Date(cdTarget.getTime()+7*24*3600*1000); diff=cdTarget-new Date(); }
+    var dd=Math.floor(diff/86400000), hh=Math.floor(diff/3600000)%24, mm=Math.floor(diff/60000)%60, ss=Math.floor(diff/1000)%60;
+    document.getElementById('cdD').textContent=dd;
+    document.getElementById('cdH').textContent=hh;
+    document.getElementById('cdM').textContent=mm;
+    document.getElementById('cdS').textContent=ss;
+  }
+  cdTick(); setInterval(cdTick,1000);
+  document.getElementById('bookForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    function v(id){ return document.getElementById(id).value.trim(); }
+    var tgl=v('fTanggal'), tglTxt=tgl;
+    if(tgl){ var p=tgl.split('-'); tglTxt=p[2]+'/'+p[1]+'/'+p[0]; }
+    var lines=[
+      'Halo Salon Laras, saya mau booking.',
+      '',
+      'Nama: '+v('fNama'),
+      'No WA: '+v('fWa'),
+      'Layanan: '+v('fLayanan'),
+      'Stylist: '+v('fStylist'),
+      'Tanggal: '+tglTxt,
+      'Jam: '+v('fJam')
+    ];
+    if(v('fCatatan')) lines.push('Catatan: '+v('fCatatan'));
+    lines.push('');
+    lines.push('Mohon konfirmasi ketersediaan slotnya ya. Terima kasih.');
+    open('https://wa.me/6281322223333?text='+encodeURIComponent(lines.join('\n')),'_blank');
+  });
+  var tglEl=document.getElementById('fTanggal');
+  var today=new Date(), pad=function(n){ return (n<10?'0':'')+n; };
+  tglEl.min=today.getFullYear()+'-'+pad(today.getMonth()+1)+'-'+pad(today.getDate());
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null });
+      if(!open){ item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px' }
+    });
+  });
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        if(e.target.querySelector('.count')||e.target.classList.contains('stats')) runCounters();
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal,.stats').forEach(function(el){ io.observe(el) });
+</script>
+</body>
+</html>
