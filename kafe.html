@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!-- DUMMY PROJECT untuk prospek WhatsApp kategori kafe dan kuliner. Tema terang dan hangat, beda total dari dummy barbershop. Pengantar ke prospek menyebutnya project demo buatan 2RC. -->
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kedai Senja, Kopi dan Roti Bakar di Serpong, Tangerang Selatan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6ee; --panel:#ffffff; --panel2:#f3ead9; --ink:#262019; --mut:#7a6c58;
+    --terra:#bc5837; --terra-d:#9c4527; --sage:#5c7150; --wa:#1faa55; --line:rgba(38,32,25,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  h1,h2{font-weight:800;letter-spacing:-.03em;line-height:1.12}
+  /* NAV */
+  nav{position:sticky;top:0;z-index:80;background:rgba(250,246,238,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+  nav.scrolled{border-bottom-color:var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+  .logo{font-size:21px;font-weight:800;letter-spacing:-.02em}
+  .logo i{color:var(--terra);font-style:normal}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:var(--ink);color:#faf6ee !important;font-weight:600;padding:9px 16px;border-radius:99px}
+  /* HERO */
+  .hero{padding:58px 0 26px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(188,88,55,.16),transparent 65%);right:-160px;top:-180px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;position:relative}
+  .kicker{display:inline-flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line);color:var(--terra-d);font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:99px}
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--wa);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,170,85,.45)}70%{box-shadow:0 0 0 8px rgba(31,170,85,0)}100%{box-shadow:0 0 0 0 rgba(31,170,85,0)}}
+  .hero h1{font-size:clamp(40px,6vw,62px);margin:20px 0 16px}
+  .hero h1 em{color:var(--terra);font-style:normal}
+  .hero p.lead{color:var(--mut);font-size:17px;line-height:1.65;max-width:470px}
+  .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--wa);color:#fff;font-weight:700;padding:15px 26px;border-radius:12px;text-decoration:none;font-size:15px;transition:transform .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,170,85,.25)}
+  .btn.ghost{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{box-shadow:none;border-color:var(--terra)}
+  .hero-note{margin-top:15px;color:var(--mut);font-size:13px}
+  .hero-note b{color:var(--ink)}
+  /* hero visual */
+  .visual{position:relative;height:460px}
+  .photo{position:absolute;inset:0 40px 0 0;border-radius:22px;background:
+    radial-gradient(120% 90% at 85% 0%,#e8b98a 0%,transparent 55%),
+    radial-gradient(100% 100% at 0% 100%,#b7c39a 0%,transparent 55%),
+    linear-gradient(155deg,#e6cf9f,#c98d5f 70%);
+    overflow:hidden}
+  .photo:after{content:"BUKA SETIAP HARI 08.00 - 22.00";position:absolute;left:20px;bottom:16px;font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(38,32,25,.6)}
+  .cup{position:absolute;right:70px;bottom:24px;width:210px;height:250px;opacity:.92}
+  .steam{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);filter:blur(7px);animation:steam 3.4s ease-in-out infinite}
+  @keyframes steam{0%{transform:translateY(0) scale(1);opacity:0}30%{opacity:.8}100%{transform:translateY(-64px) scale(1.5);opacity:0}}
+  .menu-card{position:absolute;right:0;top:26px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px 17px;box-shadow:0 22px 44px rgba(90,60,30,.18);width:212px}
+  .menu-card h4{font-size:13px;letter-spacing:.06em;color:var(--mut);text-transform:uppercase}
+  .menu-card .row{display:flex;justify-content:space-between;font-size:13.5px;margin-top:9px}
+  .menu-card .row b{color:var(--terra-d)}
+  .review-card{position:absolute;left:-6px;bottom:26px;background:var(--ink);color:#faf6ee;border-radius:16px;padding:15px 19px;box-shadow:0 22px 44px rgba(38,32,25,.35);max-width:256px}
+  .review-card .stars{color:#e9a23b;letter-spacing:2px;font-size:14px}
+  .review-card p{font-size:13px;line-height:1.55;margin-top:5px}
+  .review-card b{font-size:12px;color:#cbbfa9}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:42px 0 4px}
+  .stat{border-top:2px solid var(--line);padding-top:13px}
+  .stat b{font-size:29px;font-weight:800;letter-spacing:-.02em}
+  .stat span{display:block;color:var(--mut);font-size:12px;font-weight:600;letter-spacing:1.2px;margin-top:4px;text-transform:uppercase}
+  /* marquee */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:44px;overflow:hidden;white-space:nowrap;padding:13px 0}
+  .marquee div{display:inline-block;animation:mq 26s linear infinite;font-size:15.5px;font-weight:700;color:var(--mut)}
+  .marquee b{color:var(--terra);margin:0 14px}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  /* sections */
+  section{padding:62px 0 6px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .sec-num{color:var(--terra);font-weight:800;font-size:14px;letter-spacing:.1em}
+  h2{font-size:clamp(27px,4vw,37px)}
+  .sub{color:var(--mut);line-height:1.65;max-width:560px;margin-bottom:26px}
+  /* menu tabs */
+  .tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+  .tab{border:1px solid var(--line);background:var(--panel);color:var(--mut);font-family:inherit;font-size:14px;font-weight:700;padding:10px 19px;border-radius:99px;cursor:pointer;transition:all .2s}
+  .tab.on{background:var(--terra);border-color:var(--terra);color:#fff}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+  .mitem{display:flex;gap:14px;padding:15px 2px;border-bottom:1px dashed var(--line);align-items:baseline}
+  .mitem .nm{font-weight:700;font-size:15.5px}
+  .mitem .ds{color:var(--mut);font-size:13px;line-height:1.5;margin-top:3px}
+  .mitem .dots{flex:1;border-bottom:2px dotted rgba(38,32,25,.25);transform:translateY(-4px)}
+  .mitem .pr{font-weight:800;font-size:16.5px;color:var(--terra-d);white-space:nowrap}
+  .pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;background:var(--sage);color:#fff;padding:3px 9px;border-radius:99px;margin-left:8px;vertical-align:2px;text-transform:uppercase}
+  .menu-pane{display:none}
+  .menu-pane.on{display:block;animation:fadeUp .45s ease}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  /* gallery */
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .tile{position:relative;height:190px;border-radius:16px;overflow:hidden}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .tile:hover img{transform:scale(1.07)}
+  .tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(20,14,8,.55))}
+  .tile span{position:absolute;left:14px;bottom:12px;font-size:16px;font-weight:700;color:#fff;z-index:2}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .step .n{font-weight:800;color:var(--terra);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  .step h3{font-size:17.5px;margin:9px 0 7px}
+  .step p{color:var(--mut);font-size:14px;line-height:1.6}
+  /* testimonials */
+  .testi-box{background:var(--panel2);border-radius:20px;padding:36px 38px;text-align:left;position:relative;overflow:hidden}
+  .testi-box .stars{color:#e9a23b;letter-spacing:3px}
+  .testi-quote{font-size:clamp(19px,2.8vw,24px);line-height:1.5;font-weight:600;margin-top:13px;transition:opacity .4s;min-height:74px}
+  .testi-who{color:var(--mut);font-size:13.5px;margin-top:10px;font-weight:600}
+  .testi-dots{display:flex;gap:7px;margin-top:18px}
+  .testi-dots i{width:8px;height:8px;border-radius:50%;background:rgba(38,32,25,.22);cursor:pointer;transition:background .3s}
+  .testi-dots i.on{background:var(--terra)}
+  /* hours + faq */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .card h3{font-size:19px;margin-bottom:14px}
+  .hours{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+  .hours:last-child{border-bottom:none}
+  .hours b{font-weight:700}
+  .hours .today{color:var(--terra-d);font-weight:800}
+  .loc p{color:var(--mut);line-height:1.65;font-size:14.5px}
+  .faq-item{border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--panel);overflow:hidden}
+  .faq-q{width:100%;background:none;border:none;color:var(--ink);text-align:left;padding:16px 20px;font-size:15px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit;gap:12px}
+  .faq-q .arr{color:var(--terra);transition:transform .3s;font-size:18px}
+  .faq-item.open .faq-q .arr{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 20px 17px;color:var(--mut);font-size:14px;line-height:1.65}
+  /* final cta + footer */
+  .final{background:var(--ink);color:#faf6ee;border-radius:22px;padding:44px 40px;text-align:center;margin-top:56px}
+  .final h2{color:#faf6ee}
+  .final p{color:#cbbfa9;margin:12px auto 24px;max-width:440px;line-height:1.65}
+  footer{padding:34px 0 90px;color:var(--mut);font-size:13px;text-align:center;line-height:1.7}
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:95;background:var(--wa);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 12px 28px rgba(31,170,85,.4);animation:floatPulse 2.4s infinite}
+  @keyframes floatPulse{0%{box-shadow:0 12px 28px rgba(31,170,85,.4),0 0 0 0 rgba(31,170,85,.4)}70%{box-shadow:0 12px 28px rgba(31,170,85,.4),0 0 0 15px rgba(31,170,85,0)}100%{box-shadow:0 12px 28px rgba(31,170,85,.4),0 0 0 0 rgba(31,170,85,0)}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(max-width:860px){
+    .hero-grid,.menu-grid,.two{grid-template-columns:1fr}
+    .visual{height:380px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .gal{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:1fr}
+    .nav-links a:not(.nav-cta){display:none}
+  }
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nav-in">
+  <div class="logo">Kedai<i>Senja</i></div>
+  <div class="nav-links">
+    <a href="#menu">Menu</a><a href="#galeri">Galeri</a><a href="#ulasan">Ulasan</a><a href="#info">Jam &amp; Lokasi</a>
+    <a class="nav-cta" href="https://wa.me/6281398765432?text=Halo%20Kedai%20Senja,%20saya%20mau%20pesan%20untuk%20diambil%20nanti">Pesan Sekarang</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span> Buka sekarang, sampai 22.00</span>
+      <h1>Kopi enak dan roti bakar hangat, <em>tinggal jalan kaki</em> dari rumahmu.</h1>
+      <p class="lead">Kedai Senja adalah kedai kopi tetangga di Serpong. Biji robusta Lampung diseduh fresh setiap pesanan, roti bakar dibuat di tempat, dan harganya tetap harga tetangga.</p>
+      <div class="cta-row">
+        <a class="btn" href="https://wa.me/6281398765432?text=Halo%20Kedai%20Senja,%20saya%20mau%20pesan%20untuk%20diambil%20nanti">Pesan via WhatsApp</a>
+        <a class="btn ghost" href="#menu">Lihat Menu</a>
+      </div>
+      <p class="hero-note">Pesan dulu lewat WA, <b>ambil tanpa antre</b>. Rata rata siap dalam 10 menit.</p>
+    </div>
+    <div class="visual">
+      <div class="photo">
+        <svg class="cup" viewBox="0 0 200 240" fill="none">
+          <ellipse cx="100" cy="222" rx="72" ry="10" fill="rgba(38,32,25,.25)"/>
+          <path d="M45 90 h110 l-9 118 a10 10 0 0 1 -10 9 H64 a10 10 0 0 1 -10 -9 Z" fill="#faf6ee"/>
+          <path d="M45 90 h110 l-2.5 30 H47.5 Z" fill="#bc5837"/>
+          <circle cx="100" cy="160" r="26" fill="none" stroke="#bc5837" stroke-width="5"/>
+          <path d="M100 146 v28 M86 160 h28" stroke="#bc5837" stroke-width="5"/>
+          <rect x="88" y="18" width="7" height="58" rx="3.5" fill="#5c7150" transform="rotate(9 91 47)"/>
+        </svg>
+        <div class="steam" style="width:16px;height:26px;left:52%;top:16%"></div>
+        <div class="steam" style="width:13px;height:22px;left:57%;top:14%;animation-delay:1.1s"></div>
+        <div class="steam" style="width:11px;height:19px;left:47%;top:15%;animation-delay:2s"></div>
+      </div>
+      <div class="menu-card">
+        <h4>Paling Laris</h4>
+        <div class="row"><span>Kopi Senja</span><b>18rb</b></div>
+        <div class="row"><span>Roti Bakar Srikaya</span><b>15rb</b></div>
+        <div class="row"><span>Es Kopi Gula Aren</span><b>16rb</b></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Tempat langganan sepulang kerja. Kopinya konsisten, pesan lewat WA jadi tidak perlu nunggu."</p>
+        <b>RATING 4.8 DARI 310+ ULASAN GOOGLE</b>
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b><span class="count" data-to="4.8" data-dec="1">0</span></b><span>Rating Google</span></div>
+    <div class="stat"><b><span class="count" data-to="310">0</span>+</b><span>Ulasan Pelanggan</span></div>
+    <div class="stat"><b><span class="count" data-to="24">0</span></b><span>Pilihan Menu</span></div>
+    <div class="stat"><b><span class="count" data-to="10">0</span> mnt</b><span>Rata Rata Siap</span></div>
+  </div>
+</div></header>
+
+<div class="marquee"><div>Kopi Fresh Setiap Pesanan <b>•</b> Roti Bakar Dibuat di Tempat <b>•</b> Pesan WA, Ambil Tanpa Antre <b>•</b> Harga Tetangga <b>•</b> Kopi Fresh Setiap Pesanan <b>•</b> Roti Bakar Dibuat di Tempat <b>•</b> Pesan WA, Ambil Tanpa Antre <b>•</b> Harga Tetangga <b>•</b></div></div>
+
+<section id="menu"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">01</span><h2>Menu dan harga, jelas di depan</h2></div>
+  <p class="sub reveal">Tidak perlu tanya tanya dulu. Semua harga tertulis, tinggal pilih lalu pesan lewat WhatsApp.</p>
+  <div class="tabs reveal">
+    <button class="tab on" data-pane="kopi">Kopi</button>
+    <button class="tab" data-pane="nonkopi">Non Kopi</button>
+    <button class="tab" data-pane="makanan">Makanan</button>
+  </div>
+  <div class="menu-pane on" id="pane-kopi"><div class="menu-grid">
+    <div class="mitem"><div><span class="nm">Kopi Senja</span><span class="pill">Favorit</span><div class="ds">Tubruk robusta Lampung, pekat dan wangi</div></div><div class="dots"></div><div class="pr">18rb</div></div>
+    <div class="mitem"><div><span class="nm">Es Kopi Gula Aren</span><div class="ds">Espresso, susu segar, gula aren asli</div></div><div class="dots"></div><div class="pr">16rb</div></div>
+    <div class="mitem"><div><span class="nm">Kopi Susu Tetangga</span><div class="ds">Racikan susu dan kopi, manisnya pas</div></div><div class="dots"></div><div class="pr">15rb</div></div>
+    <div class="mitem"><div><span class="nm">Americano</span><div class="ds">Panas atau dingin, tanpa gula</div></div><div class="dots"></div><div class="pr">15rb</div></div>
+    <div class="mitem"><div><span class="nm">Cafe Latte</span><div class="ds">Espresso dengan susu steamed lembut</div></div><div class="dots"></div><div class="pr">20rb</div></div>
+    <div class="mitem"><div><span class="nm">Butterscotch Latte</span><div class="ds">Latte dengan saus butterscotch homemade</div></div><div class="dots"></div><div class="pr">22rb</div></div>
+  </div></div>
+  <div class="menu-pane" id="pane-nonkopi"><div class="menu-grid">
+    <div class="mitem"><div><span class="nm">Matcha Latte</span><span class="pill">Favorit</span><div class="ds">Bubuk matcha dengan susu segar</div></div><div class="dots"></div><div class="pr">20rb</div></div>
+    <div class="mitem"><div><span class="nm">Coklat Klasik</span><div class="ds">Coklat panas atau dingin, tidak terlalu manis</div></div><div class="dots"></div><div class="pr">18rb</div></div>
+    <div class="mitem"><div><span class="nm">Es Teh Tarik</span><div class="ds">Teh melati ditarik sampai berbusa</div></div><div class="dots"></div><div class="pr">12rb</div></div>
+    <div class="mitem"><div><span class="nm">Red Velvet Latte</span><div class="ds">Manis lembut, favorit anak anak</div></div><div class="dots"></div><div class="pr">20rb</div></div>
+    <div class="mitem"><div><span class="nm">Lemon Tea</span><div class="ds">Teh segar dengan perasan lemon asli</div></div><div class="dots"></div><div class="pr">12rb</div></div>
+    <div class="mitem"><div><span class="nm">Susu Jahe Merah</span><div class="ds">Penghangat malam, jahe bakar</div></div><div class="dots"></div><div class="pr">14rb</div></div>
+  </div></div>
+  <div class="menu-pane" id="pane-makanan"><div class="menu-grid">
+    <div class="mitem"><div><span class="nm">Roti Bakar Srikaya</span><span class="pill">Favorit</span><div class="ds">Roti panggang, selai srikaya homemade</div></div><div class="dots"></div><div class="pr">15rb</div></div>
+    <div class="mitem"><div><span class="nm">Roti Bakar Coklat Keju</span><div class="ds">Coklat lumer dan keju parut melimpah</div></div><div class="dots"></div><div class="pr">17rb</div></div>
+    <div class="mitem"><div><span class="nm">Indomie Goreng Senja</span><div class="ds">Dengan telur dan kornet, level pedas bisa pilih</div></div><div class="dots"></div><div class="pr">16rb</div></div>
+    <div class="mitem"><div><span class="nm">Nasi Ayam Geprek</span><div class="ds">Ayam crispy, sambal bawang fresh</div></div><div class="dots"></div><div class="pr">20rb</div></div>
+    <div class="mitem"><div><span class="nm">Kentang Goreng</span><div class="ds">Porsi besar buat rame rame</div></div><div class="dots"></div><div class="pr">14rb</div></div>
+    <div class="mitem"><div><span class="nm">Pisang Goreng Wijen</span><div class="ds">Pisang raja digoreng garing dengan wijen</div></div><div class="dots"></div><div class="pr">13rb</div></div>
+  </div></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">02</span><h2>Pesan tanpa antre, begini caranya</h2></div>
+  <p class="sub reveal">Buat yang pulang kerja dan tidak mau menunggu lama di kedai.</p>
+  <div class="steps">
+    <div class="step reveal"><div class="n">Langkah 1</div><h3>Chat WhatsApp</h3><p>Klik tombol pesan, tulis menu yang kamu mau dan jam ambilnya. Formatnya sudah terisi otomatis, tinggal kirim.</p></div>
+    <div class="step reveal"><div class="n">Langkah 2</div><h3>Kami siapkan</h3><p>Pesanan langsung dibuat, rata rata siap dalam 10 menit. Kami kabari lewat WA begitu pesananmu jadi.</p></div>
+    <div class="step reveal"><div class="n">Langkah 3</div><h3>Ambil dan bayar</h3><p>Datang, ambil, bayar di kasir atau QRIS. Tanpa antre, tanpa menunggu seduh dari nol.</p></div>
+  </div>
+</div></section>
+
+<section id="galeri"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">03</span><h2>Suasana kedai</h2></div>
+  <p class="sub reveal">Kecil, hangat, dan memang dibuat buat nongkrong lama atau sekadar mampir sebentar.</p>
+  <div class="gal">
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=70" alt="Suasana dalam kedai kopi" loading="lazy"><span>Area Dalam</span></div>
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=70" alt="Meja bar dan mesin kopi" loading="lazy"><span>Meja Bar</span></div>
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=70" alt="Secangkir kopi latte" loading="lazy"><span>Seduhan Hari Ini</span></div>
+    <div class="tile reveal"><img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=800&q=70" alt="Ruang duduk santai di kedai" loading="lazy"><span>Sudut Santai</span></div>
+  </div>
+</div></section>
+
+<section id="ulasan"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">04</span><h2>Kata pelanggan</h2></div>
+  <p class="sub reveal">Diambil dari ulasan Google pelanggan Kedai Senja.</p>
+  <div class="testi-box reveal">
+    <div class="stars">★★★★★</div>
+    <div class="testi-quote" id="tQuote">"Tempat langganan sepulang kerja. Kopinya konsisten, pesan lewat WA jadi tidak perlu nunggu."</div>
+    <div class="testi-who" id="tWho">Dimas, pelanggan dari Serpong</div>
+    <div class="testi-dots" id="tDots"><i class="on"></i><i></i><i></i></div>
+  </div>
+</div></section>
+
+<section id="info"><div class="wrap">
+  <div class="sec-head reveal"><span class="sec-num">05</span><h2>Jam buka dan lokasi</h2></div>
+  <p class="sub reveal">Mampir langsung bisa, pesan dulu juga bisa.</p>
+  <div class="two">
+    <div class="card reveal">
+      <h3>Jam Operasional</h3>
+      <div class="hours"><span>Senin - Kamis</span><b>08.00 - 22.00</b></div>
+      <div class="hours"><span>Jumat</span><b>08.00 - 23.00</b></div>
+      <div class="hours"><span>Sabtu</span><b>08.00 - 23.00</b></div>
+      <div class="hours"><span>Minggu</span><b class="today">09.00 - 22.00</b></div>
+      <div class="loc" style="margin-top:16px">
+        <p><b style="color:var(--ink)">Kedai Senja</b><br>Jl. Raya Serpong No. 21, Serpong<br>Kota Tangerang Selatan</p>
+        <p style="margin-top:8px">Parkir motor dan mobil tersedia. 5 menit dari Stasiun Serpong.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="faq-item"><button class="faq-q">Bisa pesan untuk diambil nanti?<span class="arr">+</span></button><div class="faq-a"><p>Bisa. Chat WhatsApp, sebutkan menu dan jam ambilnya. Pesanan kami siapkan menjelang jam itu supaya tetap fresh dan hangat.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Metode pembayarannya apa saja?<span class="arr">+</span></button><div class="faq-a"><p>Tunai, QRIS semua bank dan e-wallet, dan transfer. Untuk pesanan ambil nanti, pembayaran dilakukan saat pengambilan.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ada WiFi dan colokan?<span class="arr">+</span></button><div class="faq-a"><p>Ada WiFi gratis dan colokan di hampir semua meja. Banyak pelanggan yang kerja atau nugas di sini sampai malam.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Bisa pesan banyak untuk acara?<span class="arr">+</span></button><div class="faq-a"><p>Bisa, untuk arisan, rapat kecil, atau acara komunitas. Chat WhatsApp minimal H-1 supaya kami bisa siapkan stok dan tempatnya.</p></div></div>
+    </div>
+  </div>
+  <div class="final reveal">
+    <h2>Lagi di jalan pulang? Pesan dari sekarang.</h2>
+    <p>Sampai kedai, pesananmu sudah jadi. Tinggal ambil dan lanjut pulang.</p>
+    <a class="btn" href="https://wa.me/6281398765432?text=Halo%20Kedai%20Senja,%20saya%20mau%20pesan%20untuk%20diambil%20nanti">Pesan via WhatsApp</a>
+  </div>
+</div></section>
+
+<footer>
+  Kedai Senja, Jl. Raya Serpong No. 21, Tangerang Selatan<br>
+  Halaman dibuat oleh 2RC Digital Creative
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281398765432?text=Halo%20Kedai%20Senja,%20saya%20mau%20pesan%20untuk%20diambil%20nanti" aria-label="Chat WhatsApp">
+  <svg width="29" height="29" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.1.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.3.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2z"/></svg>
+</a>
+
+<script>
+  // nav shadow saat scroll
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>10)},{passive:true});
+  // menu tabs
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});
+      document.querySelectorAll('.menu-pane').forEach(function(x){x.classList.remove('on')});
+      t.classList.add('on');
+      document.getElementById('pane-'+t.dataset.pane).classList.add('on');
+    });
+  });
+  // angka statistik jalan
+  var counted=false;
+  function runCounters(){
+    if(counted) return; counted=true;
+    document.querySelectorAll('.count').forEach(function(el){
+      var to=parseFloat(el.dataset.to), dec=parseInt(el.dataset.dec||'0'), t0=null;
+      function step(ts){
+        if(!t0) t0=ts;
+        var p=Math.min((ts-t0)/1400,1);
+        el.textContent=(to*(0.2+0.8*p)).toFixed(dec);
+        if(p<1) requestAnimationFrame(step); else el.textContent=to.toFixed(dec);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  // testimoni berganti otomatis
+  var testi=[
+    {q:'"Tempat langganan sepulang kerja. Kopinya konsisten, pesan lewat WA jadi tidak perlu nunggu."',w:'Dimas, pelanggan dari Serpong'},
+    {q:'"Roti bakar srikaya nya juara. Harganya bersahabat, tempatnya enak buat nugas lama lama."',w:'Sinta, mahasiswi di Pamulang'},
+    {q:'"Sudah 3 kali pesan banyak buat acara kantor kecil. Selalu rapi dan tepat waktu."',w:'Pak Bima, pelanggan acara komunitas'}
+  ], ti=0, tTimer;
+  var tQ=document.getElementById('tQuote'), tW=document.getElementById('tWho'), tD=document.getElementById('tDots').children;
+  function showTesti(n){
+    ti=n; tQ.style.opacity=0;
+    setTimeout(function(){
+      tQ.textContent=testi[ti].q; tW.textContent=testi[ti].w; tQ.style.opacity=1;
+      for(var i=0;i<tD.length;i++) tD[i].classList.toggle('on',i===ti);
+    },380);
+  }
+  function autoTesti(){ tTimer=setInterval(function(){ showTesti((ti+1)%testi.length) },5200) }
+  for(var i=0;i<tD.length;i++)(function(i){ tD[i].addEventListener('click',function(){ clearInterval(tTimer); showTesti(i); autoTesti() }) })(i);
+  autoTesti();
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null });
+      if(!open){ item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px' }
+    });
+  });
+  // animasi muncul saat scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        if(e.target.querySelector('.count')||e.target.classList.contains('stats')) runCounters();
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal,.stats').forEach(function(el){ io.observe(el) });
+</script>
+</body>
+</html>
