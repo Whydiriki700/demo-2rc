@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- PROTOTYPE website penawaran untuk Ayam Geprek Bang Udin, Sepatan. Dibangun tab utama.
+     Fakta terkunci dari brief: nama usaha, pemilik Mipta Udin (Bang Udin), lokasi Tanah Merah
+     Sepatan Kabupaten Tangerang, usaha berjalan dan berkembang (rekrut 10 karyawan, ada mess,
+     postingan publik pemilik 4 Nov 2026), WA publik 085691695064.
+     Menu, harga, alamat lengkap, jam buka TIDAK diketahui: tampil sebagai placeholder berlabel jelas.
+     Foto hero adalah ilustrasi hasil generator untuk prototype, BUKAN foto asli usaha. -->
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayam Geprek Bang Udin, Ayam Geprek dan Cafe di Sepatan, Tangerang</title>
+<meta name="description" content="Ayam Geprek Bang Udin, usaha ayam geprek dan cafe di Tanah Merah, Sepatan, Kabupaten Tangerang. Pesan langsung via WhatsApp.">
+<style>
+  @font-face{font-family:"Archivo Black";src:url("fonts/ArchivoBlack.ttf") format("truetype");font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fonts/Poppins-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fonts/Poppins-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fonts/Poppins-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fonts/Poppins-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+  @font-face{font-family:"Poppins";src:url("fonts/Poppins-ExtraBold.ttf") format("truetype");font-weight:800;font-display:swap}
+  :root{
+    --bg:#fff8ef; --panel:#ffffff; --ink:#221206; --mut:#7a5c48;
+    --red:#d92323; --red-d:#a51212; --red-x:#7d0d0d;
+    --amber:#ffb320; --wa:#1faa55; --wa-d:#148843;
+    --line:rgba(34,18,6,.13); --cream:#ffedd6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{background:var(--bg);color:var(--ink);font-family:"Poppins",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .disp{font-family:"Archivo Black",sans-serif;font-weight:400;line-height:1.04;letter-spacing:.005em;text-transform:uppercase}
+  img{display:block;max-width:100%}
+  a{text-decoration:none}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:90;background:rgba(255,248,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s, box-shadow .3s}
+  nav.scrolled{border-bottom-color:var(--line);box-shadow:0 8px 30px rgba(125,13,13,.08)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+  .logo{font-family:"Archivo Black",sans-serif;font-size:19px;line-height:1.05;text-transform:uppercase;color:var(--ink)}
+  .logo span{color:var(--red)}
+  .logo small{display:block;font-family:"Poppins",sans-serif;font-weight:600;font-size:10.5px;letter-spacing:.22em;color:var(--mut);text-transform:uppercase;margin-top:3px}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{color:var(--mut);font-size:14px;font-weight:600}
+  .nav-links a:hover{color:var(--red-d)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;border-radius:99px;transition:transform .15s, background .2s, box-shadow .2s;cursor:pointer}
+  .btn:active{transform:scale(.97)}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 24px rgba(31,170,85,.32)}
+  .btn-wa:hover{background:var(--wa-d)}
+  .nav-cta{padding:10px 18px;font-size:14px}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* HERO */
+  .hero{padding:44px 0 0;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(217,35,35,.13),transparent 65%);right:-220px;top:-260px;pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center;position:relative}
+  .kicker{display:inline-flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line);color:var(--red-d);font-size:12.5px;font-weight:700;letter-spacing:.05em;padding:7px 14px;border-radius:99px;text-transform:uppercase}
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--wa);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,170,85,.45)}70%{box-shadow:0 0 0 8px rgba(31,170,85,0)}100%{box-shadow:0 0 0 0 rgba(31,170,85,0)}}
+  .hero h1{font-size:clamp(42px,6.4vw,68px);margin:20px 0 16px}
+  .hero h1 .r{color:var(--red)}
+  .hero h1 .o{color:transparent;-webkit-text-stroke:2.5px var(--ink)}
+  .hero p.lead{color:var(--mut);font-size:16.5px;line-height:1.65;max-width:50ch}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn-big{padding:15px 26px;font-size:15.5px}
+  .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+  .btn-ghost:hover{border-color:var(--red);color:var(--red-d)}
+  .hero-facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .hero-facts span{font-size:12.5px;font-weight:600;color:var(--ink);background:var(--cream);border:1px solid rgba(217,35,35,.18);padding:7px 13px;border-radius:99px}
+  .hero-img{position:relative}
+  .hero-img .frame{border-radius:26px;overflow:hidden;border:3px solid var(--ink);box-shadow:14px 14px 0 var(--red);transform:rotate(1.2deg)}
+  .hero-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/4.6;animation:kb 16s ease-in-out infinite alternate}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+  .hero-img figcaption{margin-top:20px;font-size:11.5px;color:var(--mut);text-align:right}
+  .hero-badge{position:absolute;left:-16px;bottom:44px;background:var(--amber);color:var(--ink);font-family:"Archivo Black",sans-serif;text-transform:uppercase;font-size:14px;line-height:1.15;padding:12px 16px;border-radius:14px;border:3px solid var(--ink);box-shadow:6px 6px 0 rgba(34,18,6,.9);animation:floaty 3.4s ease-in-out infinite}
+  @keyframes floaty{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-9px)}}
+
+  /* MARQUEE */
+  .mq-wrap{overflow:clip;padding:16px 0 6px;margin-top:36px}
+  .marquee{background:var(--red);color:#fff;transform:rotate(-1.1deg) scale(1.02);padding:11px 0;overflow:hidden;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .marquee .track{display:flex;gap:0;white-space:nowrap;width:max-content;animation:slide 26s linear infinite}
+  .marquee b{font-family:"Archivo Black",sans-serif;font-weight:400;text-transform:uppercase;font-size:16px;letter-spacing:.06em;padding:0 14px}
+  .marquee i{font-style:normal;color:var(--amber);padding:0 2px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* SECTIONS */
+  section{padding:76px 0 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+  .sec-head .no{font-family:"Archivo Black",sans-serif;color:var(--red);font-size:15px}
+  .sec-head h2{font-family:"Archivo Black",sans-serif;font-size:clamp(27px,4.4vw,40px);text-transform:uppercase;line-height:1.08}
+  .sec-head p{margin-left:auto;color:var(--mut);font-size:14.5px;max-width:36ch;line-height:1.6}
+  .rule{height:3px;background:var(--ink);margin-bottom:34px}
+
+  /* TENTANG */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .fact{background:var(--panel);border:2px solid var(--ink);border-radius:18px;padding:24px 22px;box-shadow:7px 7px 0 rgba(34,18,6,.9)}
+  .fact .ic{font-family:"Archivo Black",sans-serif;color:var(--red);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+  .fact h3{font-size:18.5px;font-weight:800;margin:10px 0 8px;line-height:1.3}
+  .fact p{color:var(--mut);font-size:14px;line-height:1.65}
+
+  /* KEUNGGULAN */
+  .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .adv .item{border-top:3px solid var(--line);padding-top:20px}
+  .adv .num{font-family:"Archivo Black",sans-serif;font-size:34px;color:transparent;-webkit-text-stroke:2px var(--red)}
+  .adv h3{font-size:17.5px;font-weight:800;margin:10px 0 7px}
+  .adv p{color:var(--mut);font-size:14px;line-height:1.65}
+
+  /* MENU PLACEHOLDER */
+  .menu-note{display:flex;gap:12px;align-items:flex-start;background:#fff3d9;border:2px dashed var(--amber);border-radius:14px;padding:15px 18px;margin-bottom:22px}
+  .menu-note b{font-family:"Archivo Black",sans-serif;font-size:12.5px;letter-spacing:.09em;color:#8a5b00;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+  .menu-note p{font-size:13.5px;color:#7a5c48;line-height:1.6}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .slot{border:2px dashed rgba(34,18,6,.35);border-radius:18px;padding:22px;background:rgba(255,255,255,.55)}
+  .slot .ph-img{height:110px;border-radius:12px;background:repeating-linear-gradient(45deg,#f3e3cd,#f3e3cd 12px,#efdcbe 12px,#efdcbe 24px);display:flex;align-items:center;justify-content:center;color:#a98d68;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .slot h3{margin-top:16px;font-size:16px;font-weight:700;color:#9a7c5f}
+  .slot .desc{font-size:13px;color:#b3946f;margin-top:5px;line-height:1.55}
+  .slot .price{margin-top:13px;display:inline-block;font-size:12.5px;font-weight:700;color:#a98d68;border:1.5px dashed rgba(34,18,6,.3);padding:5px 11px;border-radius:99px}
+
+  /* TAB MENU */
+  .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+  .tab-btn{font-family:"Poppins",sans-serif;font-weight:700;font-size:14.5px;padding:11px 22px;border-radius:99px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);cursor:pointer;transition:all .2s}
+  .tab-btn:hover{border-color:var(--red);color:var(--red-d)}
+  .tab-btn.act{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 8px 20px rgba(217,35,35,.3)}
+  .mcard{background:var(--panel);border:2px solid var(--ink);border-radius:18px;padding:22px;box-shadow:7px 7px 0 rgba(34,18,6,.9);transition:transform .25s, box-shadow .25s;animation:cardIn .45s ease both}
+  .mcard:hover{transform:translateY(-5px);box-shadow:10px 12px 0 rgba(165,18,18,.85)}
+  @keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .mcard .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .mcard h3{font-size:17px;font-weight:800;line-height:1.3}
+  .mcard .bdg{flex:none;font-size:10px;font-weight:800;letter-spacing:.12em;color:#8a5b00;background:#ffe9b8;border:1.5px solid var(--amber);padding:4px 8px;border-radius:99px;text-transform:uppercase}
+  .mcard .desc{font-size:13.5px;color:var(--mut);line-height:1.6;margin-top:7px}
+  .mcard .row{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+  .mcard .pr{font-family:"Archivo Black",sans-serif;font-size:19px;color:var(--red-d)}
+  .mcard .pr small{display:block;font-family:"Poppins",sans-serif;font-size:10.5px;font-weight:600;color:var(--mut);letter-spacing:.05em;margin-top:2px}
+  .mcard .ord{font-size:13px;font-weight:700;color:var(--wa-d);border:2px solid var(--wa);padding:8px 15px;border-radius:99px;transition:all .2s;white-space:nowrap}
+  .mcard .ord:hover{background:var(--wa);color:#fff}
+
+  /* FORM PESAN */
+  .order{background:var(--panel);border:2px solid var(--ink);border-radius:22px;box-shadow:9px 9px 0 rgba(34,18,6,.9);padding:30px 28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .order .full{grid-column:1/-1}
+  .fld label{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:7px}
+  .fld input,.fld select,.fld textarea{width:100%;font-family:"Poppins",sans-serif;font-size:15px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;transition:border-color .2s}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--red)}
+  .fld textarea{resize:vertical;min-height:74px}
+  .order .btn{width:100%;padding:16px;font-size:16px}
+  .order .hint{font-size:12.5px;color:var(--mut);line-height:1.6}
+
+  /* LOKASI */
+  .lokasi{background:var(--red-d);color:#fff;border-radius:28px;border:3px solid var(--ink);box-shadow:10px 10px 0 rgba(34,18,6,.9);padding:40px 38px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+  .lokasi h2{font-family:"Archivo Black",sans-serif;font-size:clamp(26px,4vw,38px);text-transform:uppercase;line-height:1.1}
+  .lokasi .addr{margin-top:16px;font-size:16px;line-height:1.7;color:#ffd9d9}
+  .lokasi .addr b{color:#fff}
+  .lokasi .todo{margin-top:14px;font-size:13px;color:#ffb3b3;line-height:1.6}
+  .lokasi .wa-box{background:#fff;color:var(--ink);border-radius:20px;padding:26px 24px;text-align:center}
+  .lokasi .wa-box .lbl{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+  .lokasi .wa-box .num{font-family:"Archivo Black",sans-serif;font-size:clamp(24px,3.4vw,31px);margin:9px 0 16px;letter-spacing:.02em}
+  .lokasi .wa-box .btn{width:100%;padding:15px;font-size:15.5px}
+  .lokasi .wa-box small{display:block;margin-top:12px;color:var(--mut);font-size:12px;line-height:1.55}
+
+  /* FOOTER */
+  footer{margin-top:76px;background:var(--ink);color:#f5e8da;padding:38px 0 96px}
+  .foot-in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+  footer .logo{color:#fff}
+  footer .logo small{color:#c9a582}
+  footer p{font-size:12.5px;color:#c9a582;line-height:1.7;max-width:56ch}
+  footer .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:700}
+
+  /* WA FLOAT */
+  .wa-float{position:fixed;right:18px;bottom:18px;z-index:95;width:58px;height:58px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(20,136,67,.45);border:3px solid #fff}
+  .wa-float svg{width:29px;height:29px}
+  .wa-float:hover{background:var(--wa-d)}
+
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rv.on{opacity:1;transform:none}
+
+  @media (max-width:860px){
+    .nav-links a:not(.nav-cta){display:none}
+    .hero{padding-top:30px}
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .hero-img img{aspect-ratio:4/3.1}
+    .hero-badge{left:8px;bottom:52px}
+    section{padding-top:58px}
+    .sec-head{flex-wrap:wrap}
+    .sec-head p{margin-left:0}
+    .facts,.adv,.menu-grid{grid-template-columns:1fr}
+    .order{grid-template-columns:1fr;padding:24px 20px}
+    .lokasi{grid-template-columns:1fr;padding:30px 24px}
+    .mq-wrap{margin-top:24px}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#">Ayam Geprek <span>Bang Udin</span><small>Tanah Merah, Sepatan</small></a>
+    <div class="nav-links">
+      <a href="#tentang">Tentang</a>
+      <a href="#menu">Menu</a>
+      <a href="#lokasi">Lokasi</a>
+      <a class="btn btn-wa nav-cta" href="https://wa.me/6285691695064?text=Halo%20Bang%20Udin%2C%20saya%20mau%20tanya%20dulu%20soal%20Ayam%20Gepreknya." target="_blank" rel="noopener">Pesan Sekarang</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span> Ayam Geprek &amp; Cafe, Sepatan</span>
+      <h1 class="disp">Pedasnya <span class="r">Nampol.</span><br>Porsinya <span class="o">Serius.</span></h1>
+      <p class="lead">Ayam Geprek Bang Udin di Tanah Merah, Sepatan. Tempat makan ayam geprek dan cafe yang dikelola langsung oleh pemiliknya. Untuk pesan atau tanya dulu, langsung saja chat WhatsApp, fast respon dari nomor usaha.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa btn-big" href="https://wa.me/6285691695064?text=Halo%20Bang%20Udin%2C%20saya%20mau%20pesan%20Ayam%20Geprek." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.7 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg>
+          Pesan via WhatsApp
+        </a>
+        <a class="btn btn-ghost btn-big" href="#menu">Lihat Menu</a>
+      </div>
+      <div class="hero-facts">
+        <span>Tanah Merah, Sepatan</span>
+        <span>Ayam Geprek &amp; Cafe</span>
+        <span>Dikelola Langsung Pemilik</span>
+      </div>
+    </div>
+    <figure class="hero-img">
+      <div class="frame"><img src="img/hero-ayam-geprek.webp" alt="Ilustrasi ayam geprek untuk prototype website Ayam Geprek Bang Udin"></div>
+      <div class="hero-badge">Geprek<br>Sepatan</div>
+      <figcaption>Foto ilustrasi untuk prototype. Foto asli usaha menyusul dari pemilik.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="mq-wrap">
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="mq"></div>
+</div>
+</div>
+
+<section id="tentang">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="no">01</span><h2>Tentang Usaha</h2><p>Fakta usaha apa adanya, langsung dari pemiliknya.</p></div>
+    <div class="rule rv"></div>
+    <div class="facts">
+      <div class="fact rv">
+        <div class="ic">Usaha Kuliner</div>
+        <h3>Ayam Geprek dan Cafe</h3>
+        <p>Usaha kuliner ayam geprek dan cafe yang berlokasi di Tanah Merah, Sepatan, Kabupaten Tangerang.</p>
+      </div>
+      <div class="fact rv">
+        <div class="ic">Pemilik</div>
+        <h3>Dikelola Bang Udin Sendiri</h3>
+        <p>Usaha ini milik dan dikelola langsung oleh Mipta Udin, yang akrab dipanggil Bang Udin.</p>
+      </div>
+      <div class="fact rv">
+        <div class="ic">Sedang Berkembang</div>
+        <h3>Tim Sedang Bertumbuh</h3>
+        <p>Usahanya sedang jalan dan berkembang. Pada November 2026 pemilik membuka rekrutmen 10 karyawan dan menyediakan mess karyawan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head rv"><span class="no">02</span><h2>Kenapa Pesan di Sini</h2></div>
+    <div class="rule rv"></div>
+    <div class="adv">
+      <div class="item rv">
+        <div class="num">01</div>
+        <h3>Pesan Langsung, Tanpa Ribet</h3>
+        <p>Satu tombol WhatsApp langsung tersambung ke nomor usaha. Tanya dulu boleh, pesan langsung juga boleh.</p>
+      </div>
+      <div class="item rv">
+        <div class="num">02</div>
+        <h3>Geprek dan Cafe Sekaligus</h3>
+        <p>Satu tempat untuk makan ayam geprek dan nongkrong cafe, di kawasan Tanah Merah, Sepatan.</p>
+      </div>
+      <div class="item rv">
+        <div class="num">03</div>
+        <h3>Yang Melayani Pemiliknya</h3>
+        <p>Usaha dikelola langsung oleh Bang Udin, jadi pesanan dan pertanyaan diterima orang yang paling kenal usahanya.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="no">03</span><h2>Menu</h2><p>Daftar menu dan harga resmi dilengkapi langsung oleh pemilik usaha.</p></div>
+    <div class="rule rv"></div>
+    <div class="menu-note rv">
+      <b>Contoh Tampilan</b>
+      <p>Tab menu ini adalah contoh tampilan untuk prototype, lengkap dengan contoh nama menu dan contoh harga supaya pemilik bisa membayangkan hasil jadinya. Semua contoh di bawah ini akan diganti daftar menu dan harga asli dari Bang Udin, bukan data asli usaha ini.</p>
+    </div>
+    <div class="tabs rv" id="menuTabs">
+      <button class="tab-btn act" data-tab="geprek" type="button">Ayam Geprek</button>
+      <button class="tab-btn" data-tab="cafe" type="button">Cafe &amp; Minuman</button>
+      <button class="tab-btn" data-tab="paket" type="button">Paket Hemat</button>
+    </div>
+    <div class="menu-grid" id="menuGrid"></div>
+  </div>
+</section>
+
+<section id="pesan">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="no">04</span><h2>Pesan Cepat</h2><p>Isi singkat, pesanmu langsung tersusun rapi dan terkirim ke WhatsApp usaha.</p></div>
+    <div class="rule rv"></div>
+    <form class="order rv" id="orderForm">
+      <div class="fld">
+        <label for="fNama">Nama Kamu</label>
+        <input id="fNama" type="text" placeholder="Tulis namamu" autocomplete="name">
+      </div>
+      <div class="fld">
+        <label for="fJumlah">Jumlah Porsi</label>
+        <input id="fJumlah" type="number" min="1" value="1">
+      </div>
+      <div class="fld full">
+        <label for="fMenu">Pilihan Menu (Contoh Tampilan)</label>
+        <select id="fMenu"></select>
+      </div>
+      <div class="fld full">
+        <label for="fCatatan">Catatan</label>
+        <textarea id="fCatatan" placeholder="Contoh: level pedasnya sedang, tambah es teh, diantar ke..."></textarea>
+      </div>
+      <div class="full">
+        <button class="btn btn-wa" type="submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.7 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg>
+          Kirim Pesan via WhatsApp
+        </button>
+        <p class="hint" style="margin-top:12px">Pilihan menu pada formulir ini memakai contoh tampilan prototype. Kalau menumu belum ada di daftar, sebutkan saja langsung di kolom catatan.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="lokasi">
+  <div class="wrap">
+    <div class="lokasi rv">
+      <div>
+        <h2>Mampir atau Pesan dari Rumah</h2>
+        <p class="addr"><b>Ayam Geprek Bang Udin</b><br>Tanah Merah, Sepatan,<br>Kabupaten Tangerang</p>
+        <p class="todo">Alamat lengkap dan jam buka akan dilengkapi oleh pemilik usaha pada versi final website ini.</p>
+      </div>
+      <div class="wa-box">
+        <div class="lbl">WhatsApp Usaha</div>
+        <div class="num">0856-9169-5064</div>
+        <a class="btn btn-wa" href="https://wa.me/6285691695064?text=Halo%20Bang%20Udin%2C%20saya%20mau%20pesan%20Ayam%20Geprek." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.7 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg>
+          Chat WhatsApp
+        </a>
+        <small>Nomor resmi dari postingan publik usaha ini. Klik untuk langsung membuka WhatsApp.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo">Ayam Geprek <span style="color:var(--red)">Bang Udin</span><small>Tanah Merah, Sepatan</small></div>
+      <p style="margin-top:14px">Prototype website contoh untuk Ayam Geprek Bang Udin. Foto pada halaman ini adalah ilustrasi hasil generator untuk prototype, bukan foto asli usaha. Nama menu dan harga pada tab menu adalah contoh tampilan dan akan diganti data asli pemilik. Alamat lengkap dan jam buka dilengkapi langsung oleh pemilik pada versi final.</p>
+    </div>
+    <div class="tag">Prototype, Belum Terbit Resmi</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6285691695064?text=Halo%20Bang%20Udin%2C%20saya%20mau%20pesan%20Ayam%20Geprek." target="_blank" rel="noopener" aria-label="Chat WhatsApp Ayam Geprek Bang Udin">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.7 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4 0 .1 0 .7-.2 1.2Z"/></svg>
+</a>
+
+<script>
+  // Pita marquee
+  var words = ["Ayam Geprek","Pedas Nampol","Tanah Merah Sepatan","Pesan via WhatsApp","Bang Udin"];
+  var half = words.map(function(w){return "<b>"+w+"</b><i>&#9679;</i>"}).join("");
+  document.getElementById("mq").innerHTML = half + half;
+
+  // Tab menu CONTOH TAMPILAN: nama dan harga contoh untuk menunjukkan tampilan,
+  // diganti daftar menu dan harga asli pemilik pada versi final.
+  var WA_NUM = "6285691695064";
+  var MENU = {
+    geprek: [
+      {n:"Ayam Geprek Original", d:"Ayam goreng tepung digeprek dengan sambal bawang, plus nasi hangat.", p:"Rp 15.000"},
+      {n:"Ayam Geprek Sambal Matah", d:"Geprek dengan sambal matah segar, wangi serai dan daun jeruk.", p:"Rp 17.000"},
+      {n:"Ayam Geprek Keju Leleh", d:"Geprek original ditambah lelehan keju di atasnya.", p:"Rp 18.000"}
+    ],
+    cafe: [
+      {n:"Es Teh Manis", d:"Teh manis dingin, pasangan wajib ayam geprek.", p:"Rp 5.000"},
+      {n:"Es Kopi Susu", d:"Kopi susu gula aren dari sisi cafe, disajikan dingin.", p:"Rp 12.000"},
+      {n:"Es Jeruk Peras", d:"Jeruk peras asli, segar dan tidak terlalu manis.", p:"Rp 8.000"}
+    ],
+    paket: [
+      {n:"Paket Berdua", d:"Dua porsi geprek dan dua es teh untuk makan berdua.", p:"Rp 35.000"},
+      {n:"Paket Ramean 4 Orang", d:"Empat porsi geprek, empat minuman, cocok buat nongkrong.", p:"Rp 65.000"},
+      {n:"Paket Nasi Kotak", d:"Untuk acara dan pesanan kantor, minimal pemesanan berlaku.", p:"Rp 20.000"}
+    ]
+  };
+  var grid = document.getElementById("menuGrid");
+  function rp(t){ return encodeURIComponent(t); }
+  function renderMenu(key){
+    grid.innerHTML = MENU[key].map(function(m, i){
+      var wa = "https://wa.me/" + WA_NUM + "?text=" + rp("Halo Bang Udin, saya mau pesan " + m.n + ".");
+      return '<div class="mcard" style="animation-delay:' + (i * 90) + 'ms">' +
+        '<div class="top"><h3>' + m.n + '</h3><span class="bdg">Contoh</span></div>' +
+        '<p class="desc">' + m.d + '</p>' +
+        '<div class="row"><div class="pr">' + m.p + '<small>harga contoh</small></div>' +
+        '<a class="ord" href="' + wa + '" target="_blank" rel="noopener">Pesan Ini</a></div></div>';
+    }).join("");
+  }
+  renderMenu("geprek");
+  document.querySelectorAll("#menuTabs .tab-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll("#menuTabs .tab-btn").forEach(function(b){ b.classList.remove("act"); });
+      btn.classList.add("act");
+      renderMenu(btn.dataset.tab);
+    });
+  });
+
+  // Formulir pesan cepat: susun pesan WhatsApp otomatis
+  var sel = document.getElementById("fMenu");
+  Object.keys(MENU).forEach(function(k){
+    MENU[k].forEach(function(m){
+      var o = document.createElement("option");
+      o.value = m.n; o.textContent = m.n + " (" + m.p + ", contoh)";
+      sel.appendChild(o);
+    });
+  });
+  var lain = document.createElement("option");
+  lain.value = "Menu lain (disebut di catatan)"; lain.textContent = "Menu lain, sebutkan di catatan";
+  sel.appendChild(lain);
+  document.getElementById("orderForm").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var nama = document.getElementById("fNama").value.trim();
+    var jml = document.getElementById("fJumlah").value || "1";
+    var menu = sel.value;
+    var cat = document.getElementById("fCatatan").value.trim();
+    var teks = "Halo Bang Udin, saya " + (nama || "pelanggan") + ". Mau pesan: " + menu + " x" + jml + " porsi." + (cat ? " Catatan: " + cat : "");
+    window.open("https://wa.me/" + WA_NUM + "?text=" + rp(teks), "_blank");
+  });
+
+  // Nav bayangan saat scroll
+  var nav = document.getElementById("nav");
+  addEventListener("scroll", function(){ nav.classList.toggle("scrolled", scrollY > 8); }, {passive:true});
+
+  // Animasi muncul
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
